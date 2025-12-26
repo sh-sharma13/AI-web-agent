@@ -1,0 +1,42 @@
+{
+    "manifest_version": 3,
+    "name": "BlueLays - Agentic Service",
+    "version": "1.1",
+    "description": "Integrated AI Agent for Study Productivity (Samsung Hackathon)",
+    "permissions": [
+        "identity",
+        "activeTab",
+        "scripting",
+        "storage",
+        "history",
+        "alarms",
+        "notifications"
+    ],
+    "host_permissions": [
+        "http://localhost:5000/*",
+        "*://*.youtube.com/*",
+        "*://*.udemy.com/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": ["*://*.youtube.com/watch*", "*://*.udemy.com/course/*/learn/lecture/*"],
+            "js": ["content_script.js"]
+        }
+    ],
+    "oauth2": {
+        "client_id": "942927233192-ttf5ah0bv39eds4dbbnaqj9cj9h1h80s.apps.googleusercontent.com",
+        "scopes": [
+            "https://www.googleapis.com/auth/calendar",
+            "https://www.googleapis.com/auth/gmail.send",
+            "https://www.googleapis.com/auth/gmail.readonly",
+            "profile",
+            "email"
+        ]
+    },
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "service_worker": "background.js"
+    }
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlueLays Agent</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">BlueLays</div>
+            <div id="connection-status" class="status-indicator offline"></div>
+        </header>
+
+        <div id="auth-section" class="section">
+            <p>Connect your account to start.</p>
+            <button id="login-btn" class="primary-btn">
+                <img src="https://www.svgrepo.com/show/475656/google-color.svg" width="20" style="margin-right:8px">
+                Sign in with Google
+            </button>
+        </div>
+
+        <div id="dashboard-section" class="section hidden">
+
+            <div class="grid-card">
+                <h3>💬 Ask BlueLays</h3>
+                <textarea id="agent-input"
+                    placeholder="e.g. 'Plan a study session for React tomorrow at 10am'"></textarea>
+                <button id="agent-submit" class="accent-btn">Let's go 🚀</button>
+                <button id="summary-btn" class="secondary-btn"
+                    style="margin-top: 8px; width: 100%; background: #238636; border: none; color: white; padding: 8px; border-radius: 6px; cursor: pointer;">📝
+                    Summarize Last Session</button>
+            </div>
+
+            <div id="agent-response" class="response-card hidden">
+                <div class="response-header">Agent Response</div>
+                <div id="response-content"></div>
+            </div>
+
+            <div class="grid-card">
+                <h3>Study Recommendations</h3>
+                <button id="scan-btn" class="primary-btn">🔄 Scan Learning History</button>
+
+                <div id="topics-container" class="topics-grid">
+                    <p style="color: grey; font-size: 0.9em; text-align: center; margin-top: 20px;">
+                        Scan to see your learning topics.
+                    </p>
+                </div>
+
+                <h3 style="margin-top: 15px;">Upcoming</h3>
+                <ul id="rec-list" class="rec-list">
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+
+</html>
